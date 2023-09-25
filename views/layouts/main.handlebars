@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/{{style}}">
+</head>
+
+<body>
+    {{#if user}}
+    <nav class="nav" id="nav">
+        <button class="hamburger" id="hamburger">
+            <i class="fas fa-bars fa-lg"></i>
+        </button>
+        <ul class="navListContainer" id="navListContainer">
+            <li>
+                <a class="linkForm" onclick="backHome()">Home</a>
+            </li>
+            {{#if (eq user.rol 'admin')}}
+            <li>
+                <a class="linkForm" href="/api/user/getAll">Control de Usuarios</a>
+            </li>
+            <li>
+                <a class="linkForm" href="/api/products/form">Control de Productos</a>
+            </li>
+            {{else}}
+            {{#if (eq user.rol 'premium')}}
+            <li>
+                <a class="linkForm" href="/api/products/form">Control de Productos</a>
+            </li>
+            {{/if}}
+            <li>
+                <a class="linkForm" onclick="changeRol('{{user._id}}')">Cambiar Rol</a>
+            </li>
+            <li>
+                <a class="linkForm" href="/api/user/documents">Documentación</a>
+            </li>
+            {{/if}}
+        </ul>
+        <div class="cartLogout">
+            <ul class="listCartLogout">
+                <li>
+                    <a href="{{url}}" id="cartLink">
+                        <i class="fas fa-shopping-cart fa-lg"></i>
+                        <span class="linkForm" id="cartQuantity"></span>
+                    </a>
+                </li>
+                <li>
+                    <a class="linkForm" href="/api/user/logout">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="dropdownMenu" id="dropdownMenu">
+    </div>
+
+    <button class="floating-button" onclick="goChat()"><i class="fa-sharp fa-regular fa-comments fa-lg"></i></button>
+    {{{body}}}
+    <script src="/js/getCartLinkQuantity.js"></script>
+    <script src="/js/utils.js"></script>
+    <script src="/js/navbar.js"></script>
+    {{else}}
+    {{{body}}}
+    <script src="/js/passwordToggle.js"></script>
+    <script src="/js/utils.js"></script>
+    {{/if}}
+</body>
+<script src="https://kit.fontawesome.com/e8f62e9a4c.js" crossorigin="anonymous"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</html>

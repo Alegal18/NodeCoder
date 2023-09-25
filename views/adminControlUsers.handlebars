@@ -1,0 +1,28 @@
+{{#if users}}
+<div class="mainUserControlContainer">
+    <h1>Control de Usuarios</h1>
+    <main class="formContainerUserControl">
+        <div class="user-table">
+            {{#each users}}
+            <div class="user-table-row">
+                <p><strong>Username: </strong>{{this.username}}</p>
+                <p><strong>Email: </strong>{{this.email}}</p>
+                <p><strong>Rol: </strong>{{this.rol}}</p>
+                <div class="userControlSectionButtons">
+                    <button class="cardButton buttonCheckout buttonTrash userControlButton" onclick="deleteUser('{{this._id}}')">
+                        <i class="fa-solid fa-trash fa-lg"></i>
+                    </button>
+                    <button class="cardButton buttonCheckout" onclick="changeRolUser('{{this._id}}')">Cambiar Rol
+                    </button>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </main>
+</div>
+{{else}}
+<div class="mainEptyUsers">
+    <h1>No existen usuarios registrados</h1>
+</div>
+{{/if}}
+<script src="/js/adminUsersControl.js"></script>

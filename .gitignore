@@ -1,0 +1,6 @@
+/node_modules
+plantilla.js
+.env
+/practicas
+/src/uploads/documents/*
+!/src/uploads/documents/.gitkeep
