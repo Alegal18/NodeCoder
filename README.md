@@ -15,7 +15,6 @@ All challenges will be pushed in this repository.
 # How to clone this repository?
 First click the <b>Code</b> button and copy the repository link.
 
-<img src="https://res.cloudinary.com/dveku4pvl/image/upload/v1675827991/WhatsApp_Image_2023-02-08_at_00.46.21_lm6hjs.jpg">
 
 <br>
 Then, in the terminal of your choice, go to the directory where you want to clone it and write the following command lines:
