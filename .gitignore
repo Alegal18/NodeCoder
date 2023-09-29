@@ -4,3 +4,4 @@ plantilla.js
 /practicas
 /src/uploads/documents/*
 !/src/uploads/documents/.gitkeep
+.vercel
