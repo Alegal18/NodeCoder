@@ -1,6 +1,7 @@
 /node_modules
 plantilla.js
 /practicas
+.env
 /src/uploads/documents/*
 !/src/uploads/documents/.gitkeep
 .vercel
