@@ -11,11 +11,11 @@ const {
 const {
     serviceGetProductById
 } = require('../services/product')
-const { getUserByEmail } = require("../services/user");
-const getQuantityInCart = async (req, res) => {
+const { getUserByEmail } = require("../services/user"); 
+const getQuantityInCart = async (req, res) => { 
     const productsInCart = await serviceQuantityInCart(req.params.cid)
     res.send(productsInCart)
-}
+} 
 const createCart = async (req, res) => {
     try {
         const cartAdded = await serviceAddCart();

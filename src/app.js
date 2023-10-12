@@ -17,8 +17,8 @@ const swaggerOption = require("../src/config/swagger")
 const {scheduleDeleteInactiveUsers, scheduleDeleteExpiredTokens} = require('./config/cronTasks')
 
 const specs = swaggerJSDoc(swaggerOption)
-const MONGO_URL = process.env.db
-const secret = process.env.secret
+const MONGO_URL = process.env.db 
+const secret = process.env.secret 
 const routes = require("./routes/index");
 const handle404 = require("./middlewares/handle404");
 

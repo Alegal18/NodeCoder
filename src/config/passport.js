@@ -3,6 +3,7 @@ const GitHubStrategy = require("passport-github2");
 const {
     createUserService,
     getUserByEmail,
+    getUserById
 } = require("../services/user");
 
 const initPassport = () => {
