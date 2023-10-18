@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha entregables/entregable10/src/tests/* --recursive --exit",
-    "start": "node index.js",
+    "start": "node src/app.js",
     "debug": "node --inspect index.js",
-    "dev": "nodemon index.js"
+    "dev": "nodemon src/app.js"
   },
   "repository": {
     "type": "git",

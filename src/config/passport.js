@@ -26,6 +26,7 @@ const initPassport = () => {
             },
             async (accessToken, refreshToken, profile, done) => {
                 try {
+                    console.log(profile)
                     let user = await getUserByEmail(profile.emails[0].value)
                     if (!user) {
                         let newUser = {
