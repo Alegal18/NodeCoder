@@ -6,15 +6,7 @@ const {
     getUserById
 } = require("../services/user");
 
-const initPassport = () => {
-    passport.serializeUser((user, done) => {
-        done(null, user._id);
-    });
-    passport.deserializeUser(async (id, done) => {
-    
-        const user = await getUserById(id);
-        done(null, user);
-    });
+
     passport.use(
         "github",
         new GitHubStrategy(
@@ -25,8 +17,7 @@ const initPassport = () => {
                 
             },
             async (accessToken, refreshToken, profile, done) => {
-                try {
-                    console.log(profile)
+                try {                    
                     let user = await getUserByEmail(profile.emails[0].value)
                     if (!user) {
                         let newUser = {
@@ -47,6 +38,15 @@ const initPassport = () => {
             }
         )
     );
+    const initPassport = () => {
+        passport.serializeUser((user, done) => {
+            done(null, user._id);
+        });
+        passport.deserializeUser(async (id, done) => {
+        
+            const user = await getUserById(id);
+            done(null, user);
+        });
 };
 
 module.exports = initPassport;
