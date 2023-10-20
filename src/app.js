@@ -63,7 +63,8 @@ app.get("/", (req, res) => {
   res.redirect("api/products");
 })
 app.get('/stripe-key',(req, res) =>{
-  res.send({ publishableKey: process.env.publicKeyStripe});
+  //res.send({ publishableKey: process.env.publicKeyStripe});
+  res.send({ publishableKey: `${process.env.PUBLISHABLE_KEY}`});
 });
 app.get("/mockingproducts", (req, res) => {
   res.send({ status: "success", payload: getMockProducts() });
