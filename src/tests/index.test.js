@@ -1,7 +1,7 @@
 const testProducts = require('./products.test')
 const cartTest = require('./carts.test');
 const sessionTest = require('./sessions.test');
-describe('Testing Tienda Sublime', () => {
+describe('Testing Tienda CeluShop', () => {
     describe('Test de Productos', () => {
         testProducts();
     });

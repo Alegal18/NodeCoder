@@ -2,7 +2,7 @@ const swaggerOption = {
     definition: {
         openapi: "3.0.1",
         info:{
-            title:"Documentación API Eccomerce Sublime",
+            title:"Documentación API Eccomerce CeluShop",
             description: "Documentación del módulo productos y carrito."
         }
     },

@@ -33,7 +33,7 @@ app.use(
     saveUninitialized: false,
   })
 );
-app.use(cookieParser("sublimeTienda"));
+app.use(cookieParser("CeluShop"));
 
 const hbs = handlebars.create({
   helpers: {
