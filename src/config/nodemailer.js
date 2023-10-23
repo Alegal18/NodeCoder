@@ -39,7 +39,7 @@ const createBodyMail = (ticket, user) => {
 </head>
 <body>
     <main>
-        <h1>Bienvenido a la familia Sublime ${user.name}</h1>
+        <h1>Bienvenido a la CeluShop ${user.name}</h1>
         <h2>Ticket de compra ${ticket.code}</h2>
         <p> El total de tu compra es: $${ticket.amount}</p>
         <p>Este email es generado automaticamente, por favor no responder al mismo!</p>
@@ -59,7 +59,7 @@ const crateBodyReset = (token, user, resetUrl) => {
     </head>
     <body>
         <main>
-        <h1>Hola ${user.username}! recuperá tu contraseña ahora y volvé a disfrutar de Sublime</h1>
+        <h1>Hola ${user.username}! recuperá tu contraseña ahora y volvé a disfrutar de CeluShop</h1>
         <p>Este es tu token para recuperar tu contraseña: ${token}</p>
         <button> <a href ="${resetUrl}"> Recuperá tu contraseña</a></button>
         <p>Recordá que este token tiene validez durante una hora, caso contrario, tendrás que generarlo de nuevo.</p>
@@ -111,7 +111,7 @@ const createBodyProductDeletedByAdmin = (user, product) => {
 const sendEmailPurchase = async (ticket, user) => {
     try {
         let result = await transportGmail.sendMail({
-            from: "Sublime <tiendasublime@gmail.com> ",
+            from: "CeluShop <celulartienda629@gmail.com> ",
             to: user.email,
             subject: `Compra ${ticket.code}`,
             html: createBodyMail(ticket, user),
@@ -125,7 +125,7 @@ const sendEmailPurchase = async (ticket, user) => {
 const sendEmailResetPassword = async (token, user, resetUrl) => {
     try {
         let result = await transportGmail.sendMail({
-            from: "Sublime <tiendasublime@gmail.com> ",
+            from: "CeluShop <celulartienda629@gmail.com> ",
             to: user.email,
             subject: `Recuperación de Contraseña`,
             html: crateBodyReset(token, user, resetUrl),
@@ -139,7 +139,7 @@ const sendEmailResetPassword = async (token, user, resetUrl) => {
 const sendEmailUserDeleted = async (user) => {
     try {
         let result = await transportGmail.sendMail({
-            from: "Sublime <tiendasublime@gmail.com> ",
+            from: "CeluShop <celulartienda629@gmail.com> ",
             to: user.email,
             subject: `Tu cuenta ha sido eliminada`,
             html: createBodyUserDeleted(user),
@@ -153,7 +153,7 @@ const sendEmailUserDeleted = async (user) => {
 const sendEmailProductDeleted = async (user, emailBody) => {
     try {
         let result = await transportGmail.sendMail({
-            from: "Sublime <tiendasublime@gmail.com> ",
+            from: "CeluShop <celulartienda629@gmail.com> ",
             to: user,
             subject: `Tu producto ha sido eliminado`,
             html: emailBody,
