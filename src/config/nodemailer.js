@@ -2,6 +2,7 @@ const nodemailer = require("nodemailer");
 const { logger } = require("../middlewares/logger");
 const transportGmail = nodemailer.createTransport({
     service: "gmail",
+    port: 587,
     auth: {
         user: process.env.nodemailerEmail,
         pass: process.env.nodemailerPassword,
@@ -111,7 +112,7 @@ const createBodyProductDeletedByAdmin = (user, product) => {
 const sendEmailPurchase = async (ticket, user) => {
     try {
         let result = await transportGmail.sendMail({
-            from: "CeluShop <celulartienda629@gmail.com> ",
+            from: "CeluShop <cpnalexisgalvez@gmail.com> ",
             to: user.email,
             subject: `Compra ${ticket.code}`,
             html: createBodyMail(ticket, user),
@@ -125,7 +126,7 @@ const sendEmailPurchase = async (ticket, user) => {
 const sendEmailResetPassword = async (token, user, resetUrl) => {
     try {
         let result = await transportGmail.sendMail({
-            from: "CeluShop <celulartienda629@gmail.com> ",
+            from: "CeluShop <cpnalexisgalvez@gmail.com> ",
             to: user.email,
             subject: `Recuperación de Contraseña`,
             html: crateBodyReset(token, user, resetUrl),
@@ -139,7 +140,7 @@ const sendEmailResetPassword = async (token, user, resetUrl) => {
 const sendEmailUserDeleted = async (user) => {
     try {
         let result = await transportGmail.sendMail({
-            from: "CeluShop <celulartienda629@gmail.com> ",
+            from: "CeluShop <cpnalexisgalvez@gmail.com> ",
             to: user.email,
             subject: `Tu cuenta ha sido eliminada`,
             html: createBodyUserDeleted(user),
@@ -153,7 +154,7 @@ const sendEmailUserDeleted = async (user) => {
 const sendEmailProductDeleted = async (user, emailBody) => {
     try {
         let result = await transportGmail.sendMail({
-            from: "CeluShop <celulartienda629@gmail.com> ",
+            from: "CeluShop <cpnalexisgalvez@gmail.com> ",
             to: user,
             subject: `Tu producto ha sido eliminado`,
             html: emailBody,
